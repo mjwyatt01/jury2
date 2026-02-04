@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useState } from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -362,12 +361,6 @@ export default function JuryMessagingApp() {
         .pulse-red { animation: softPulse 2.5s ease-in-out infinite; }
       `}</style>
 
-      {/* Logo */}
-      <div className="absolute top-3 right-6">
-        <div className="relative w-[200px] h-[70px]">
-          <Image src="/logo.png" alt="Light & Wyatt" fill className="object-contain" />
-        </div>
-      </div>
 
       <div className="grid grid-cols-3 gap-4 h-full pt-20">
         {/* LEFT COLUMN: summary + grid */}
