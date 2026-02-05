@@ -1,41 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --radius: 0.625rem;
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
+  /* Gusto-Inspired Light Theme - Sophisticated Teal & Warm Neutrals */
+  --background: oklch(0.98 0.003 120); /* Warm off-white, inviting */
+  --foreground: oklch(0.30 0.02 260); /* Sophisticated dark blue-gray */
+  --radius: 1rem; /* More generous rounding like Gusto */
+
+  --card: oklch(1 0 0); /* Pure white cards for contrast */
+  --card-foreground: oklch(0.30 0.02 260);
+
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --popover-foreground: oklch(0.30 0.02 260);
+
+  --primary: oklch(0.55 0.12 170); /* Sophisticated teal-green, Gusto's signature */
+  --primary-foreground: oklch(0.99 0 0);
+  --primary-hover: oklch(0.50 0.13 170); /* Slightly darker on hover */
+
+  --secondary: oklch(0.97 0.003 120); /* Very soft warm gray */
+  --secondary-foreground: oklch(0.40 0.02 260);
+
+  --muted: oklch(0.96 0.005 120); /* Warm muted background */
+  --muted-foreground: oklch(0.55 0.015 260); /* Softer text */
+
+  --accent: oklch(0.62 0.10 200); /* Lighter teal for accents */
+  --accent-foreground: oklch(0.99 0 0);
+
+  --destructive: oklch(0.62 0.18 25); /* Warm, approachable red */
+  --destructive-foreground: oklch(0.99 0 0);
+
+  --border: oklch(0.93 0.003 120); /* Very subtle, barely visible borders */
+  --input: oklch(0.99 0.002 120); /* Bright white inputs for clarity */
+  --ring: oklch(0.55 0.12 170); /* Teal focus ring */
+
+  --success: oklch(0.58 0.13 145); /* Soft success green */
+  --warning: oklch(0.72 0.14 70); /* Warm amber */
+  --info: oklch(0.62 0.12 240); /* Soft info blue */
+
+  /* Soft, subtle shadows - Gusto style (minimal, gentle) */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.03);
+  --shadow-md: 0 2px 8px -2px rgb(0 0 0 / 0.06), 0 1px 3px -1px rgb(0 0 0 / 0.04);
+  --shadow-lg: 0 4px 12px -2px rgb(0 0 0 / 0.08), 0 2px 6px -2px rgb(0 0 0 / 0.05);
+  --shadow-xl: 0 8px 24px -4px rgb(0 0 0 / 0.10), 0 4px 12px -4px rgb(0 0 0 / 0.06);
+
+  /* Chart colors */
+  --chart-1: oklch(0.65 0.22 41);
+  --chart-2: oklch(0.60 0.12 185);
+  --chart-3: oklch(0.55 0.15 150);
+  --chart-4: oklch(0.70 0.15 75);
+  --chart-5: oklch(0.60 0.15 240);
+
+  /* Sidebar (matches main theme) */
+  --sidebar: var(--card);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: var(--secondary);
+  --sidebar-accent-foreground: var(--secondary-foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
 }
 
 @theme inline {
@@ -78,51 +104,73 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/* Removed @media (prefers-color-scheme: dark) to allow manual theme control */
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  /* Refined Dark Theme - Sophisticated & Inviting */
+  --background: oklch(0.18 0.012 260); /* Rich dark blue-gray, not black */
+  --foreground: oklch(0.94 0.005 240); /* Soft warm white */
+
+  --card: oklch(0.22 0.015 260); /* Elevated cards */
+  --card-foreground: oklch(0.94 0.005 240);
+
+  --popover: oklch(0.24 0.015 260);
+  --popover-foreground: oklch(0.94 0.005 240);
+
+  --primary: oklch(0.65 0.13 170); /* Bright, inviting teal */
+  --primary-foreground: oklch(0.15 0.01 260);
+  --primary-hover: oklch(0.70 0.14 170);
+
+  --secondary: oklch(0.26 0.015 260); /* Subtle secondary */
+  --secondary-foreground: oklch(0.88 0.005 240);
+
+  --muted: oklch(0.25 0.015 260);
+  --muted-foreground: oklch(0.62 0.01 240); /* Softer text */
+
+  --accent: oklch(0.68 0.11 200); /* Lighter teal accent */
+  --accent-foreground: oklch(0.15 0.01 260);
+
+  --destructive: oklch(0.68 0.18 25);
+  --destructive-foreground: oklch(0.94 0 0);
+
+  --border: oklch(0.32 0.015 260); /* Subtle but visible borders */
+  --input: oklch(0.25 0.015 260); /* Distinct inputs */
+  --ring: oklch(0.65 0.13 170); /* Bright teal ring */
+
+  --success: oklch(0.64 0.13 145);
+  --warning: oklch(0.76 0.14 70);
+  --info: oklch(0.66 0.12 240);
+
+  /* Adjusted shadows for dark mode */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.4);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.6), 0 8px 10px -6px rgb(0 0 0 / 0.5);
+
+  /* Chart colors for dark mode */
+  --chart-1: oklch(0.70 0.22 41);
+  --chart-2: oklch(0.65 0.12 185);
+  --chart-3: oklch(0.60 0.15 150);
+  --chart-4: oklch(0.75 0.15 75);
+  --chart-5: oklch(0.65 0.15 240);
+
+  /* Sidebar (matches dark theme) */
+  --sidebar: var(--card);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: var(--secondary);
+  --sidebar-accent-foreground: var(--secondary-foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
 }
 
 @layer base {
@@ -131,5 +179,130 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+    font-weight: 400;
+    letter-spacing: -0.01em; /* Tighter tracking for modern look */
   }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold;
+    letter-spacing: -0.02em; /* Gusto-style tight tracking */
+    line-height: 1.2;
+  }
+  h1 { @apply text-3xl; font-weight: 600; }
+  h2 { @apply text-2xl; font-weight: 600; }
+  h3 { @apply text-xl; font-weight: 600; }
+  h4 { @apply text-lg; font-weight: 500; }
+
+  /* Improve readability */
+  p {
+    line-height: 1.6;
+  }
+
+  /* Smooth font rendering */
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  /* Gusto-style shadows */
+  .shadow-gusto-sm {
+    box-shadow: var(--shadow-sm);
+  }
+  .shadow-gusto {
+    box-shadow: var(--shadow-md);
+  }
+  .shadow-gusto-lg {
+    box-shadow: var(--shadow-lg);
+  }
+  .shadow-gusto-xl {
+    box-shadow: var(--shadow-xl);
+  }
+
+  /* Smooth transitions */
+  .transition-gusto {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+/* Component styles - Gusto-inspired (outside of @layer to avoid circular dependencies) */
+.card-gusto {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 1rem; /* More generous rounding */
+  box-shadow: var(--shadow-md);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 1.5rem; /* More generous padding */
+}
+
+.card-gusto:hover {
+  box-shadow: var(--shadow-lg);
+  border-color: rgb(from var(--border) r g b / 0.8);
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  padding: 0.75rem 1.5rem; /* More generous padding */
+  border-radius: 0.75rem; /* Softer corners */
+  font-weight: 500;
+  font-size: 0.9375rem; /* Slightly larger text */
+  letter-spacing: -0.01em;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-sm);
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px); /* Subtle lift */
+}
+
+.btn-primary:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.btn-secondary {
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  letter-spacing: -0.01em;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+  background-color: var(--muted);
+  border-color: rgb(from var(--border) r g b / 0.8);
+  transform: translateY(-1px);
+}
+
+.btn-secondary:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.input-gusto {
+  background-color: var(--input);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem; /* Softer corners */
+  padding: 0.75rem 1rem; /* More generous padding */
+  font-size: 0.9375rem;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 400;
+}
+
+.input-gusto:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgb(from var(--ring) r g b / 0.15); /* Softer, larger ring */
+  background-color: var(--card);
+}
+
+.input-gusto::placeholder {
+  color: var(--muted-foreground);
+  font-weight: 400;
 }
